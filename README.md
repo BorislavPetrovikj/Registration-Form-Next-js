@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Registration Form - Next.js with TypeScript and Tailwind CSS
+
+A modern, accessible two-step registration form built with Next.js, TypeScript, and Tailwind CSS. Features smooth transitions, comprehensive validation, and a pixel-perfect design matching the Figma prototype.
+
+## Features
+
+- ✨ Two-step registration form with smooth transitions
+- 🔒 Comprehensive client-side validation
+- ♿ Fully accessible with ARIA attributes and keyboard navigation
+- 📱 Responsive design
+- 🎨 Pixel-perfect implementation of the Figma design
+- 🔄 State preservation between steps
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd registration-form
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Form Validation Rules
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Step 1: Personal Information
 
-## Learn More
+#### First Name and Last Name
+- Required fields
+- Minimum 2 characters
+- Maximum 50 characters
+- Allows letters, spaces, hyphens, and apostrophes
+- No numbers or special characters
 
-To learn more about Next.js, take a look at the following resources:
+### Step 2: Contact Information
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Phone Number
+- Required field
+- Accepts UK phone number formats:
+  - Mobile: 07123456789 or +447123456789
+  - Landline: 01234567890 or +441234567890
+- Allows spaces, hyphens, and parentheses in input
+- Maximum 15 digits (excluding formatting)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Testing the Form
 
-## Deploy on Vercel
+1. **Step 1 Testing**
+   - Try submitting empty fields
+   - Enter invalid characters (numbers, special characters)
+   - Test minimum/maximum length validation
+   - Verify error messages are clear and accessible
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Step 2 Testing**
+   - Test different phone number formats
+   - Verify country code selection
+   - Check validation for invalid phone numbers
+   - Test back button functionality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Accessibility Testing**
+   - Navigate using keyboard only (Tab, Shift+Tab, Enter)
+   - Test with screen readers
+   - Verify ARIA attributes are present
+   - Check focus management between steps
+
+4. **Transition Testing**
+   - Verify smooth 200ms transitions between steps
+   - Check that form state is preserved when going back
+   - Test transitions on different devices/browsers
+
+## Development
+
+### Project Structure
+```
+├── app/
+│   ├── components/
+│   │   ├── FormInput.tsx
+│   │   ├── RegistrationForm.tsx
+│   │   └── StepIndicator.tsx
+│   ├── types/
+│   │   └── form.ts
+│   ├── utils/
+│   │   └── validation.ts
+│   ├── layout.tsx
+│   └── page.tsx
+├── public/
+│   └── fonts/
+└── ...
+```
+
+### Key Components
+
+- `RegistrationForm`: Main form component with step management
+- `FormInput`: Reusable input component with validation
+- `StepIndicator`: Visual indicator for current step
+- `validation.ts`: Form validation rules and functions
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

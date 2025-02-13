@@ -1,25 +1,13 @@
+import RegistrationForm from "./components/RegistrationForm";
+
 export default function Home() {
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-2xl mx-auto space-y-8">
-        <h1 className="text-4xl font-bold font-sans">
-          Testing Geist Sans Font
+    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md mx-auto">
+        <h1 className="text-center text-3xl font-bold text-gray-900 mb-8">
+          Registration Form
         </h1>
-
-        <p className="text-xl font-sans">
-          This paragraph uses Geist Sans. The quick brown fox jumps over the
-          lazy dog.
-        </p>
-
-        <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <h2 className="text-2xl font-mono mb-4">Testing Geist Mono Font</h2>
-
-          <code className="font-mono">
-            const greeting = &quot;Hello, World!&quot;;
-            <br />
-            console.log(greeting);
-          </code>
-        </div>
+        <RegistrationForm />
       </div>
     </main>
   );
