@@ -117,6 +117,8 @@ export default function RegistrationForm() {
     setTimeout(() => {
       setStep(1);
       setIsTransitioning(false);
+      setErrors({});
+      setTouched({});
     }, 200);
   };
 
@@ -129,6 +131,8 @@ export default function RegistrationForm() {
       phoneNumber: "",
       countryCode: "+44",
     });
+    setErrors({});
+    setTouched({});
   };
 
   if (isSuccess) {
@@ -137,7 +141,7 @@ export default function RegistrationForm() {
 
   return (
     <>
-      <div className="w-full max-w-[393px] mx-auto px-6">
+      <div className="w-full max-w-[393px] mx-auto px-3">
         <Header showBack={step === 2} onBack={handleBack} />
         <StepIndicator currentStep={step} />
 

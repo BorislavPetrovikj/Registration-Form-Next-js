@@ -1,19 +1,25 @@
 export const validateName = (name: string): string | undefined => {
-  if (!name) {
+  // First check if field is empty
+  if (!name || name.trim() === '') {
     return "This field is required";
   }
+
+  // Then check for valid characters
   if (!/^[a-zA-Z\s-']+$/.test(name)) {
     return "We only accept letters and spaces for names, no special characters";
   }
+
+  // Finally check maximum length
   if (name.length > 50) {
     return "Name cannot be longer than 50 characters";
   }
+
   return undefined;
 };
 
 export const validatePhoneNumber = (phoneNumber: string): string | undefined => {
-  if (!phoneNumber) {
-    return "Please check the phone number is in the correct format";
+  if (!phoneNumber || phoneNumber.trim() === '') {
+    return "This field is required";
   }
   
   const cleanNumber = phoneNumber.replace(/[\s\-\(\)]/g, '');
@@ -28,7 +34,7 @@ export const validatePhoneNumber = (phoneNumber: string): string | undefined => 
 
 // Helper function to validate email if needed in the future
 export const validateEmail = (email: string): string | undefined => {
-  if (!email) {
+  if (!email || email.trim() === '') {
     return "This field is required";
   }
   
