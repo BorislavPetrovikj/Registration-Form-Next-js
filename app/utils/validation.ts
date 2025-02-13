@@ -2,11 +2,8 @@ export const validateName = (name: string): string | undefined => {
   if (!name) {
     return "This field is required";
   }
-  if (name.trim().length < 2) {
-    return "Name must be at least 2 characters long";
-  }
   if (!/^[a-zA-Z\s-']+$/.test(name)) {
-    return "Name can only contain letters, spaces, hyphens and apostrophes";
+    return "We only accept letters and spaces for names, no special characters";
   }
   if (name.length > 50) {
     return "Name cannot be longer than 50 characters";
@@ -22,14 +19,9 @@ export const validatePhoneNumber = (phoneNumber: string): string | undefined => 
   // Remove spaces and any other formatting characters
   const cleanNumber = phoneNumber.replace(/[\s\-\(\)]/g, '');
   
-  // UK phone number validation (more comprehensive)
-  // Allows for various UK number formats
+  // UK phone number validation
   if (!/^(?:(?:\+44|0)7\d{9}|(?:\+44|0)1\d{9}|(?:\+44|0)2\d{9})$/.test(cleanNumber)) {
-    return "Please enter a valid UK phone number (e.g., 07123456789 or +447123456789)";
-  }
-  
-  if (cleanNumber.length > 15) {
-    return "Phone number is too long";
+    return "Please enter a valid UK phone number";
   }
   
   return undefined;
