@@ -50,7 +50,7 @@ export default function FormFooter({
               ? "opacity-70 cursor-not-allowed"
               : "hover:bg-primary/80"
           } 
-          transition-colors mt-6 font-medium`}
+          transition-colors  font-medium`}
       >
         {isSubmitting ? "Processing..." : "Continue"}
       </button>

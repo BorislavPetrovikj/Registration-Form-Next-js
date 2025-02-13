@@ -70,13 +70,14 @@ yarn dev
 ```
 ├── app/
 │   ├── components/
-│   │   ├── FormInput.tsx
-│   │   ├── RegistrationForm.tsx
-│   │   └── StepIndicator.tsx
+│   │   ├── ui/
+│   │   │   ├── form-input.tsx
+│   │   │   └── step-indicator.tsx
+│   │   └── registration-form.tsx
+│   ├── lib/
+│   │   └── validation.ts
 │   ├── types/
 │   │   └── form.ts
-│   ├── utils/
-│   │   └── validation.ts
 │   ├── layout.tsx
 │   └── page.tsx
 ├── public/
@@ -86,9 +87,9 @@ yarn dev
 
 ### Key Components
 
-- `RegistrationForm`: Main form component with step management
-- `FormInput`: Reusable input component with validation
-- `StepIndicator`: Visual indicator for current step
+- `registration-form.tsx`: Main form component with step management
+- `form-input.tsx`: Reusable input component with validation
+- `step-indicator.tsx`: Visual indicator for current step
 - `validation.ts`: Form validation rules and functions
 
 ## Contributing

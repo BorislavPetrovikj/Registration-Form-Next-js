@@ -5,7 +5,7 @@ import { FormData, ValidationErrors } from "../types/form";
 import StepIndicator from "./StepIndicator";
 import Header from "./Header";
 import { useFormStore } from "../store/useFormStore";
-import { GB, IE, US, AU, AF, AL, DZ } from "country-flag-icons/react/3x2";
+
 import React from "react";
 import SuccessScreen from "./SuccessScreen";
 import Step1Form from "./registration/Step1Form";
@@ -122,7 +122,7 @@ export default function RegistrationForm() {
           <div role="group" aria-labelledby="step-title">
             <h1
               id="step-title"
-              className="text-[20px] leading-7 font-semibold text-gray-900 mb-6"
+              className="text-[20px] leading-7 font-semibold font-sans text-gray-900 mb-6"
             >
               {step === 1 ? "Some introductions" : "Let's validate your number"}
             </h1>
