@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@font-face {
+  font-family: 'YourFontName';
+  src: url('/fonts/YourFont.woff2') format('woff2'),
+    url('/fonts/YourFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* If you have different font weights, add them separately */
+@font-face {
+  font-family: 'YourFontName';
+  src: url('/fonts/YourFont-Bold.woff2') format('woff2'),
+    url('/fonts/YourFont-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
