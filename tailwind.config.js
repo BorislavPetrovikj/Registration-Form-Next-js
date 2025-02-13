@@ -10,8 +10,13 @@ module.exports = {
       colors: {
         foreground: "var(--foreground)",
         background: "var(--background)",
+        primary: {
+          DEFAULT: "#0D71C9",
+        },
       },
       fontFamily: {
+        sans: ["var(--font-geist)"],
+        mono: ["var(--font-geist-mono)"],
         heading: ["var(--font-heading)"],
         georgia: ["Georgia", "serif"],
       },

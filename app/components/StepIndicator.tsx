@@ -9,7 +9,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
     <div className="flex items-center justify-center gap-[6px]">
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center ${
-          currentStep === 1 ? "bg-[#0D71C9]" : "bg-[#0216260A]"
+          currentStep === 1 ? "bg-primary" : "bg-[#0216260A]"
         }`}
       >
         <span
@@ -23,7 +23,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
       <div className="w-1 h-1 bg-[#0216261F] rounded-full"></div>
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center ${
-          currentStep === 2 ? "bg-[#0D71C9]" : "bg-[#0216260A]"
+          currentStep === 2 ? "bg-primary" : "bg-[#0216260A]"
         }`}
       >
         <span

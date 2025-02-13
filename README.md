@@ -6,9 +6,9 @@ A modern, accessible two-step registration form built with Next.js, TypeScript, 
 
 - ✨ Two-step registration form with smooth transitions
 - 🔒 Comprehensive client-side validation
-- ♿ Fully accessible with ARIA attributes and keyboard navigation
+- ♿ Fully accessible with ARIA attributes
 - 📱 Responsive design
-- 🎨 Pixel-perfect implementation of the Figma design
+- 🎨 Pixel-perfect implementation
 - 🔄 State preservation between steps
 
 ## Getting Started
@@ -42,51 +42,27 @@ yarn dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Form Validation Rules
+## Testing Guide
 
-### Step 1: Personal Information
+### Validation Rules
+- First/Last Name: 2-50 characters, letters only
+- Phone Number: UK format (07XXXXXXXXX)
 
-#### First Name and Last Name
-- Required fields
-- Minimum 2 characters
-- Maximum 50 characters
-- Allows letters, spaces, hyphens, and apostrophes
-- No numbers or special characters
-
-### Step 2: Contact Information
-
-#### Phone Number
-- Required field
-- Accepts UK phone number formats:
-  - Mobile: 07123456789 or +447123456789
-  - Landline: 01234567890 or +441234567890
-- Allows spaces, hyphens, and parentheses in input
-- Maximum 15 digits (excluding formatting)
-
-## Testing the Form
-
-1. **Step 1 Testing**
-   - Try submitting empty fields
-   - Enter invalid characters (numbers, special characters)
-   - Test minimum/maximum length validation
-   - Verify error messages are clear and accessible
-
-2. **Step 2 Testing**
-   - Test different phone number formats
-   - Verify country code selection
-   - Check validation for invalid phone numbers
+### Test Cases
+1. Form Navigation
+   - Try navigating between steps
+   - Verify state preservation
    - Test back button functionality
 
-3. **Accessibility Testing**
-   - Navigate using keyboard only (Tab, Shift+Tab, Enter)
-   - Test with screen readers
-   - Verify ARIA attributes are present
-   - Check focus management between steps
+2. Field Validation
+   - Submit empty fields
+   - Test invalid characters
+   - Try incorrect phone formats
 
-4. **Transition Testing**
-   - Verify smooth 200ms transitions between steps
-   - Check that form state is preserved when going back
-   - Test transitions on different devices/browsers
+3. Accessibility
+   - Navigate with keyboard
+   - Test with screen readers
+   - Verify ARIA attributes
 
 ## Development
 

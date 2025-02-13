@@ -13,15 +13,14 @@ export const validateName = (name: string): string | undefined => {
 
 export const validatePhoneNumber = (phoneNumber: string): string | undefined => {
   if (!phoneNumber) {
-    return "This field is required";
+    return "Please check the phone number is in the correct format";
   }
   
-  // Remove spaces and any other formatting characters
   const cleanNumber = phoneNumber.replace(/[\s\-\(\)]/g, '');
   
-  // UK phone number validation
-  if (!/^(?:(?:\+44|0)7\d{9}|(?:\+44|0)1\d{9}|(?:\+44|0)2\d{9})$/.test(cleanNumber)) {
-    return "Please enter a valid UK phone number";
+  // UK mobile number validation (starting with 07)
+  if (!/^07\d{9}$/.test(cleanNumber)) {
+    return "Please check the phone number is in the correct format";
   }
   
   return undefined;

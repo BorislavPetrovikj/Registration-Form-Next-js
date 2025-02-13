@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import "./globals.css";
 
-const geist = localFont({ src: "../public/fonts/GeistVF.woff" });
+// Geist Variable Font (for regular text)
+const geist = localFont({
+  src: "../public/fonts/GeistVF.woff",
+  variable: "--font-geist",
+});
+
+// Geist Mono Variable Font (for monospace/code)
+const geistMono = localFont({
+  src: "../public/fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = {
   title: "Registration Form",
@@ -16,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={geist.className}>{children}</body>
+      <body className={`${geist.variable} ${geistMono.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

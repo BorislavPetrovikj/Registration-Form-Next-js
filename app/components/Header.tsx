@@ -11,7 +11,7 @@ export default function Header({ showBack, onBack }: HeaderProps) {
       {showBack && (
         <button
           onClick={onBack}
-          className="absolute left-0 text-[#0D71C9] flex items-center text-2xl"
+          className="absolute left-0 text-[#021626] flex items-center text-2xl"
         >
           <svg
             width="24"
@@ -22,7 +22,7 @@ export default function Header({ showBack, onBack }: HeaderProps) {
           >
             <path
               d="M19 12H5M5 12L12 19M5 12L12 5"
-              stroke="currentColor"
+              stroke="#021626"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
