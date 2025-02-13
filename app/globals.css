@@ -4,38 +4,44 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
---background-rgb: 246, 250, 254;
+  --background-rgb: 246, 250, 254;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-background: rgb(var(--background-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
     --foreground: #ededed;
+    --background: #0a0a0a;
   }
 }
 
+/* Font smoothing */
 @layer base {
+  html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
   body {
     @apply text-foreground bg-background;
-
+  
 }
 
+/* Form-specific styles */
 @layer components {
   .form-transition {
     @apply transition-all duration-200 ease-in-out;
   }
 
   .focus-ring {
-      @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
   }
 
   .form-input {
-      @apply w-full px-4 py-2 border rounded-lg focus-ring transition-all duration-200;
+    @apply w-full px-4 py-2 border rounded-lg focus-ring transition-all duration-200;
   }
 }
 }

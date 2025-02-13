@@ -15,13 +15,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist)"],
-        mono: ["var(--font-geist-mono)"],
-        heading: ["var(--font-heading)"],
-        georgia: ["Georgia", "serif"],
+        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       fontSize: {
-        "heading-xs": ["16px", "24px"],
+        "heading-xs": ["16px", "20px"],
       },
       lineHeight: {
         "heading-xs": "24px",
