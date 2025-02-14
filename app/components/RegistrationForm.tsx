@@ -34,16 +34,8 @@ export default function RegistrationForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const {
-    errors,
-    setErrors,
-    touched,
-    setTouched,
-    handleBlur,
-    validateStep1,
-    validateStep2,
-    clearErrors,
-  } = useFormValidation(formData);
+  const { errors, setErrors, touched, setTouched, handleBlur, validateStep1 } =
+    useFormValidation(formData);
 
   const countries = COUNTRIES;
 
@@ -72,14 +64,14 @@ export default function RegistrationForm() {
         setStep(2);
         setIsTransitioning(false);
       }, 200);
-    } else if (step === 2 && validateStep2()) {
+    } else if (step === 2 && validateStep1()) {
       setIsSuccess(true);
     }
   };
 
   const handleBack = () => {
     setIsTransitioning(true);
-    clearErrors();
+
     setTimeout(() => {
       setStep(1);
       setIsTransitioning(false);
@@ -95,12 +87,10 @@ export default function RegistrationForm() {
       phoneNumber: "",
       countryCode: "+44",
     });
-    clearErrors();
   };
 
   const handleOpenCountryModal = () => {
     setIsCountryDropdownOpen(true);
-    clearErrors();
   };
 
   if (isSuccess) {
@@ -172,7 +162,6 @@ export default function RegistrationForm() {
         isOpen={isCountryDropdownOpen}
         onClose={() => {
           setIsCountryDropdownOpen(false);
-          clearErrors();
         }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
