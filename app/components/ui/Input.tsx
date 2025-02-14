@@ -38,7 +38,7 @@ export function Input({
           aria-invalid={!!error}
         />
         {error && (
-          <div className="font-body font-light text-body-xs text-[#F23148] mt-1">
+          <div className="font-body font-light text-body-xs text-[#F23148] mt-2">
             {showBullet ? (
               <div className="flex items-baseline gap-1">
                 <Image

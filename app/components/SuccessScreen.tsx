@@ -29,7 +29,7 @@ export default function SuccessScreen({
 
           <button
             onClick={onBackToStart}
-            className="text-[#2563EB] text-base hover:underline"
+            className="text-[#0D71C9] text-base hover:underline bg-[#0D71C9] bg-opacity-0 hover:bg-opacity-5 px-2 py-1 rounded transition-all"
           >
             Back to start
           </button>

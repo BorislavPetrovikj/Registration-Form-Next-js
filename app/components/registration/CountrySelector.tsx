@@ -5,18 +5,21 @@ interface CountrySelectorProps {
   formData: FormData;
   countries: any[];
   setIsCountryDropdownOpen: (isOpen: boolean) => void;
+  error?: string;
 }
 
 export default function CountrySelector({
   formData,
   countries,
   setIsCountryDropdownOpen,
+  error,
 }: CountrySelectorProps) {
   return (
     <button
       onClick={() => setIsCountryDropdownOpen(true)}
-      className={`h-[56px] px-6 rounded-[28px] border-2 border-[#0216261F] flex items-center justify-between min-w-[100px]
-        ${!formData.countryCode && "bg-[#F6FAFE]"}`}
+      className={`h-[56px] px-6 rounded-[28px] flex items-center justify-between min-w-[100px]
+        ${!formData.countryCode && "bg-[#F6FAFE]"}
+        ${error ? "border-2 border-[#F23148]" : "border-2 border-[#0216261F]"}`}
     >
       <span className="font-body font-light text-body-reg text-[#021626]">
         {formData.countryCode}

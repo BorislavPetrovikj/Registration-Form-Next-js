@@ -51,7 +51,7 @@ export default function FormInput({
       {error && (
         <div
           id={`${name}-error`}
-          className="mt-1 text-sm text-red-600 flex items-center gap-1"
+          className="mt-2 text-sm text-red-600 flex items-center gap-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

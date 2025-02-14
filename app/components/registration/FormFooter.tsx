@@ -22,7 +22,7 @@ export default function FormFooter({
   return (
     <>
       {step === 2 && (
-        <p className="font-body font-light text-body-xs leading-body-xs tracking-[0%] text-[#021626] mt-2 mb-8">
+        <p className="font-body font-light text-body-xs leading-body-xs tracking-[0%] text-[#021626] mt-2 mb-6">
           By clicking 'Continue' you confirm that you agree to our{" "}
           <button
             onClick={() => setShowTerms(true)}
