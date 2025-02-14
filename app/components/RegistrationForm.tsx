@@ -34,8 +34,15 @@ export default function RegistrationForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { errors, setErrors, touched, setTouched, handleBlur, validateStep1 } =
-    useFormValidation(formData);
+  const {
+    errors,
+    setErrors,
+    touched,
+    setTouched,
+    handleBlur,
+    validateStep1,
+    validateStep2,
+  } = useFormValidation(formData);
 
   const countries = COUNTRIES;
 
@@ -64,7 +71,7 @@ export default function RegistrationForm() {
         setStep(2);
         setIsTransitioning(false);
       }, 200);
-    } else if (step === 2 && validateStep1()) {
+    } else if (step === 2 && validateStep2()) {
       setIsSuccess(true);
     }
   };
