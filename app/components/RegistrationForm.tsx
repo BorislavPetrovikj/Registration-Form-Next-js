@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FormData, ValidationErrors } from "../types/form";
+import { RegistrationFormData, ValidationErrors } from "../types/form";
 import StepIndicator from "./StepIndicator";
 import Header from "./Header";
 import { useFormStore } from "../store/useFormStore";
@@ -19,7 +19,7 @@ import { COUNTRIES } from "../constants/countries";
 export default function RegistrationForm() {
   const { step, firstName, lastName, setStep, setFirstName, setLastName } =
     useFormStore();
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<RegistrationFormData>({
     firstName: firstName,
     lastName: lastName,
     phoneNumber: "",
@@ -42,6 +42,7 @@ export default function RegistrationForm() {
     handleBlur,
     validateStep1,
     validateStep2,
+    clearErrors,
   } = useFormValidation(formData);
 
   const countries = COUNTRIES;
@@ -58,10 +59,6 @@ export default function RegistrationForm() {
 
     if (name === "firstName") setFirstName(value);
     if (name === "lastName") setLastName(value);
-
-    if (!touched[name]) {
-      setTouched((prev) => ({ ...prev, [name]: true }));
-    }
 
     if (errors[name as keyof ValidationErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
@@ -82,11 +79,10 @@ export default function RegistrationForm() {
 
   const handleBack = () => {
     setIsTransitioning(true);
+    clearErrors();
     setTimeout(() => {
       setStep(1);
       setIsTransitioning(false);
-      setErrors({});
-      setTouched({});
     }, 200);
   };
 
@@ -99,8 +95,12 @@ export default function RegistrationForm() {
       phoneNumber: "",
       countryCode: "+44",
     });
-    setErrors({});
-    setTouched({});
+    clearErrors();
+  };
+
+  const handleOpenCountryModal = () => {
+    setIsCountryDropdownOpen(true);
+    clearErrors();
   };
 
   if (isSuccess) {
@@ -170,7 +170,10 @@ export default function RegistrationForm() {
 
       <CountrySelectionModal
         isOpen={isCountryDropdownOpen}
-        onClose={() => setIsCountryDropdownOpen(false)}
+        onClose={() => {
+          setIsCountryDropdownOpen(false);
+          clearErrors();
+        }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         filteredCountries={filteredCountries}

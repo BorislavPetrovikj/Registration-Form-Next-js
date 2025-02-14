@@ -1,9 +1,9 @@
 import React from "react";
-import { FormData, ValidationErrors } from "../../types/form";
+import { RegistrationFormData, ValidationErrors } from "../../types/form";
 import { PhoneInput } from "../ui/PhoneInput";
 
 interface Step2FormProps {
-  formData: FormData;
+  formData: RegistrationFormData;
   errors: ValidationErrors;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (name: string) => void;

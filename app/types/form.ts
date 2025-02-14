@@ -1,4 +1,4 @@
-export interface FormData {
+export interface RegistrationFormData {
   firstName: string;
   lastName: string;
   phoneNumber: string;

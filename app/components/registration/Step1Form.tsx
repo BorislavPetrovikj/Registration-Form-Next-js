@@ -1,9 +1,9 @@
 import React from "react";
-import { FormData, ValidationErrors } from "../../types/form";
+import { RegistrationFormData, ValidationErrors } from "../../types/form";
 import { Input } from "../ui/Input";
 
 interface Step1FormProps {
-  formData: FormData;
+  formData: RegistrationFormData;
   errors: ValidationErrors;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (name: string) => void;

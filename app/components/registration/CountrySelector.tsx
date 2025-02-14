@@ -1,8 +1,8 @@
 import React from "react";
-import { FormData } from "../../types/form";
+import { RegistrationFormData } from "../../types/form";
 
 interface CountrySelectorProps {
-  formData: FormData;
+  formData: RegistrationFormData;
   countries: any[];
   setIsCountryDropdownOpen: (isOpen: boolean) => void;
   error?: string;

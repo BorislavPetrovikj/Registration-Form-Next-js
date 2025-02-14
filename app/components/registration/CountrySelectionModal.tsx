@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "../Modal";
-import { FormData } from "../../types/form";
+import { RegistrationFormData } from "../../types/form";
 
 interface CountrySelectionModalProps {
   isOpen: boolean;
@@ -8,7 +8,7 @@ interface CountrySelectionModalProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   filteredCountries: any[];
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+  setFormData: React.Dispatch<React.SetStateAction<RegistrationFormData>>;
   setIsCountryDropdownOpen: (isOpen: boolean) => void;
 }
 
