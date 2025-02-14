@@ -2,8 +2,17 @@ import React from "react";
 import Image from "next/image";
 import CountrySelector from "../registration/CountrySelector";
 
+// Add this interface to define the form data structure
+interface RegistrationFormData {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  countryCode: string;
+}
+
 interface PhoneInputProps {
-  formData: FormData;
+  // Update the formData type to use our new interface
+  formData: RegistrationFormData;
   error?: string;
   countries: any[];
   setIsCountryDropdownOpen: (isOpen: boolean) => void;
