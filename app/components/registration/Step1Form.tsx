@@ -22,13 +22,13 @@ export default function Step1Form({
     if (!error) return undefined;
 
     if (error === "This field is required") {
-      return `* Please enter a ${
+      return `Please enter a ${
         fieldName === "firstName" ? "first" : "last"
       } name`;
     }
 
     if (error === "special_characters") {
-      return "* We only accept letters and spaces for names, no special characters";
+      return "We only accept letters and spaces for names, no special characters";
     }
 
     return error;
@@ -51,8 +51,8 @@ export default function Step1Form({
         onBlur={() => handleBlur("firstName")}
         placeholder="Your first name"
         error={getErrorMessage("firstName", errors.firstName)}
-        showBullet={false}
-        className={`w-full px-4 py-4 rounded-[28px] bg-[#F9FAFB] 
+        showBullet={true}
+        className={`w-full px-4 py-4 rounded-[28px] bg-[#F6FAFE] 
           ${
             errors.firstName
               ? "border-2 border-[#FF0000]"
@@ -75,8 +75,8 @@ export default function Step1Form({
         onBlur={() => handleBlur("lastName")}
         placeholder="Your last name"
         error={getErrorMessage("lastName", errors.lastName)}
-        showBullet={false}
-        className={`w-full px-4 py-4 rounded-[28px] bg-[#F9FAFB] 
+        showBullet={true}
+        className={`w-full px-4 py-4 rounded-[28px]  bg-[#F6FAFE] 
           ${
             errors.lastName
               ? "border-2 border-[#FF0000]"

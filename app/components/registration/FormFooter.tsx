@@ -22,18 +22,18 @@ export default function FormFooter({
   return (
     <>
       {step === 2 && (
-        <p className="text-sm text-[#6B5F5F] mb-6">
+        <p className="font-body font-light text-body-xs leading-body-xs tracking-[0%] text-[#021626] mt-2 mb-8">
           By clicking 'Continue' you confirm that you agree to our{" "}
           <button
             onClick={() => setShowTerms(true)}
-            className="text-[#2563EB] hover:underline"
+            className="text-[#0D71C9] font-bold"
           >
             terms and conditions
           </button>{" "}
           and{" "}
           <button
             onClick={() => setShowPrivacy(true)}
-            className="text-[#2563EB] hover:underline"
+            className="text-[#0D71C9] font-bold"
           >
             privacy policy
           </button>
@@ -50,7 +50,7 @@ export default function FormFooter({
               ? "opacity-70 cursor-not-allowed"
               : "hover:bg-primary/80"
           } 
-          transition-colors  font-medium`}
+          transition-colors font-medium`}
       >
         {isSubmitting ? "Processing..." : "Continue"}
       </button>
@@ -58,13 +58,18 @@ export default function FormFooter({
       {step === 1 && (
         <>
           <div className="text-center mt-6">
-            <a href="#" className="text-[#2563EB] text-sm hover:underline">
+            <a
+              href="#"
+              className="font-body font-bold text-body-reg text-[#0D71C9] hover:underline"
+            >
               Already have an account?
             </a>
           </div>
 
-          <div className="text-center mt-8 text-[#9CA3AF] text-sm">
-            Version 0.1
+          <div className="text-center mt-8">
+            <span className="font-body font-light text-body-xs text-[#02162680]">
+              Version 0.1
+            </span>
           </div>
         </>
       )}

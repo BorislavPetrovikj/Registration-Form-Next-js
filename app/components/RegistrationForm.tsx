@@ -109,58 +109,63 @@ export default function RegistrationForm() {
 
   return (
     <>
-      <div className="w-full max-w-[393px] mx-auto px-3">
-        <Header showBack={step === 2} onBack={handleBack} />
-        <StepIndicator currentStep={step} />
+      <div className="w-[393px] h-[721px] mx-auto">
+        <div className="px-4 max-w-[393px]">
+          <Header showBack={step === 2} onBack={handleBack} />
+          <StepIndicator currentStep={step} />
 
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="mt-8"
-          role="form"
-          aria-label="Registration form"
-        >
-          <div role="group" aria-labelledby="step-title">
-            <h1
-              id="step-title"
-              className="text-[20px] leading-7 font-semibold font-sans text-gray-900 mb-6"
-            >
-              {step === 1 ? "Some introductions" : "Let's validate your number"}
-            </h1>
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="mt-[30px] space-y-6 max-w-full"
+            role="form"
+            aria-label="Registration form"
+          >
+            <div role="group" aria-labelledby="step-title">
+              <h1
+                id="step-title"
+                className="font-heading font-bold text-[18px] leading-heading-sm text-gray-900 mb-4"
+              >
+                {step === 1
+                  ? "Some introductions"
+                  : "Let's validate your number"}
+              </h1>
 
-            <div
-              className={`space-y-6 transition-opacity duration-200 ${
-                isTransitioning ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              {step === 1 ? (
-                <Step1Form
-                  formData={formData}
-                  errors={errors}
-                  handleInputChange={handleInputChange}
-                  handleBlur={handleBlur}
-                />
-              ) : (
-                <Step2Form
-                  formData={formData}
-                  errors={errors}
-                  handleInputChange={handleInputChange}
-                  setIsCountryDropdownOpen={setIsCountryDropdownOpen}
-                  countries={countries as unknown as any[]}
-                />
-              )}
+              <div
+                className={`space-y-6 transition-opacity duration-200 ${
+                  isTransitioning ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                {step === 1 ? (
+                  <Step1Form
+                    formData={formData}
+                    errors={errors}
+                    handleInputChange={handleInputChange}
+                    handleBlur={handleBlur}
+                  />
+                ) : (
+                  <Step2Form
+                    formData={formData}
+                    errors={errors}
+                    handleInputChange={handleInputChange}
+                    handleBlur={handleBlur}
+                    setIsCountryDropdownOpen={setIsCountryDropdownOpen}
+                    countries={countries as unknown as any[]}
+                  />
+                )}
+              </div>
+
+              <FormFooter
+                step={step}
+                isSubmitting={isSubmitting}
+                showTerms={showTerms}
+                showPrivacy={showPrivacy}
+                setShowTerms={setShowTerms}
+                setShowPrivacy={setShowPrivacy}
+                handleContinue={handleContinue}
+              />
             </div>
-
-            <FormFooter
-              step={step}
-              isSubmitting={isSubmitting}
-              showTerms={showTerms}
-              showPrivacy={showPrivacy}
-              setShowTerms={setShowTerms}
-              setShowPrivacy={setShowPrivacy}
-              handleContinue={handleContinue}
-            />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
       <CountrySelectionModal

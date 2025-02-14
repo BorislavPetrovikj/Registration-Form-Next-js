@@ -6,7 +6,7 @@ interface StepIndicatorProps {
 
 export default function StepIndicator({ currentStep }: StepIndicatorProps) {
   return (
-    <div className="flex items-center justify-center gap-[6px]">
+    <div className="flex items-center justify-center gap-[4px]">
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center ${
           currentStep === 1 ? "bg-primary" : "bg-[#0216260A]"

@@ -24,7 +24,7 @@ export default function CountrySelectionModal({
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="">
       <div className="flex flex-col h-full">
-        <div className="sticky top-0 bg-white p-4">
+        <div className="sticky top-0  bg-[#F6FAFE] p-4">
           <div className="relative">
             <input
               type="text"

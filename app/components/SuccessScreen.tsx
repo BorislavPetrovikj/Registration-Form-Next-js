@@ -23,7 +23,7 @@ export default function SuccessScreen({
             Congratulations
           </h1>
 
-          <p className="text-base text-[#6B5F5F] mb-8">
+          <p className="text-base text-[#6B5F5F] mb-2">
             Welcome to your very own 25
           </p>
 

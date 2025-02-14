@@ -17,9 +17,27 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-geist)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+        body: ["var(--font-geist)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "heading-xs": ["16px", "20px"],
+        "body-xs": [
+          "14px",
+          {
+            lineHeight: "20px",
+            letterSpacing: "0%",
+          },
+        ],
+        "body-reg": [
+          "16px",
+          {
+            lineHeight: "24px",
+            letterSpacing: "0%",
+          },
+        ],
+      },
+      fontWeight: {
+        light: "300",
       },
       lineHeight: {
         "heading-xs": "24px",

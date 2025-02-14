@@ -27,7 +27,7 @@ export default function Modal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+    <div className="fixed inset-0 z-50  bg-[#F6FAFE]  overflow-y-auto">
       <div className="max-w-md mx-auto px-4 pt-[59px] pb-6">
         <div className="flex items-center justify-end mb-6">
           <button

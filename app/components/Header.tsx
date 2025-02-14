@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export default function Header({ showBack, onBack }: HeaderProps) {
   return (
-    <div className="flex items-center justify-center relative mb-4">
+    <div className="flex items-center justify-center relative mb-2 h-[72px] bg-[#F6FAFE]/80 backdrop-blur-[24px] ">
       {showBack && (
         <button
           onClick={onBack}
@@ -33,7 +33,7 @@ export default function Header({ showBack, onBack }: HeaderProps) {
       <Image
         src="/Logo.svg"
         alt="25 Logo"
-        width={57}
+        width={56}
         height={56}
         priority
         className="mx-auto"
