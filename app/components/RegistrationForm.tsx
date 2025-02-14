@@ -40,6 +40,7 @@ export default function RegistrationForm() {
     touched,
     setTouched,
     handleBlur,
+    handleInputChange: validateOnChange,
     validateStep1,
     validateStep2,
   } = useFormValidation(formData);
@@ -59,9 +60,8 @@ export default function RegistrationForm() {
     if (name === "firstName") setFirstName(value);
     if (name === "lastName") setLastName(value);
 
-    if (errors[name as keyof ValidationErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
+    // Validate on change
+    validateOnChange(e);
   };
 
   const handleContinue = () => {
@@ -78,7 +78,8 @@ export default function RegistrationForm() {
 
   const handleBack = () => {
     setIsTransitioning(true);
-
+    setErrors({});
+    setTouched({});
     setTimeout(() => {
       setStep(1);
       setIsTransitioning(false);
@@ -94,6 +95,8 @@ export default function RegistrationForm() {
       phoneNumber: "",
       countryCode: "+44",
     });
+    setErrors({});
+    setTouched({});
   };
 
   const handleOpenCountryModal = () => {

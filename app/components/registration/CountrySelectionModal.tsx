@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "../Modal";
 import { RegistrationFormData } from "../../types/form";
+import { Input } from "../ui/Input";
 
 interface CountrySelectionModalProps {
   isOpen: boolean;
@@ -22,20 +23,26 @@ export default function CountrySelectionModal({
   setIsCountryDropdownOpen,
 }: CountrySelectionModalProps) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="">
-      <div className="flex flex-col h-full">
-        <div className="sticky top-0  bg-[#F6FAFE] p-4">
+    <Modal isOpen={isOpen} onClose={onClose} title="" showCloseButton={false}>
+      <div className="flex flex-col h-full bg-[#F6FAFE]">
+        <div className="sticky top-0 px-4 pt-4 pb-2 -mt-10">
           <div className="relative">
-            <input
+            <Input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search"
-              className="w-full pl-4 pr-10 py-3 rounded-full border border-[#2563EB] focus:outline-none"
+              placeholder="Search country"
+              className="bg-[#F6FAFE]"
             />
-            <div className="absolute right-4 top-1/2 -translate-y-1/2">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
               {searchQuery ? (
-                <button onClick={() => setSearchQuery("")} className="p-1">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSearchQuery("");
+                  }}
+                  className="p-1 hover:bg-gray-50 rounded-full"
+                >
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path
                       d="M15 5L5 15M5 5l10 10"
@@ -61,7 +68,7 @@ export default function CountrySelectionModal({
           </div>
         </div>
 
-        <div className="overflow-y-auto flex-1">
+        <div className="overflow-y-auto flex-1 px-4">
           {filteredCountries.map((country) => {
             const FlagComponent = country.flag;
             return (
@@ -74,13 +81,17 @@ export default function CountrySelectionModal({
                   }));
                   setIsCountryDropdownOpen(false);
                 }}
-                className="w-full px-4 py-3 flex items-center hover:bg-gray-50 active:bg-gray-100"
+                className="w-full py-4 flex items-center hover:bg-white"
               >
-                <div className="w-8 h-6 mr-3 rounded-sm overflow-hidden">
-                  <FlagComponent />
+                <div className="flex items-center">
+                  <div className="w-8 h-6 overflow-hidden rounded-[4px]">
+                    <FlagComponent />
+                  </div>
+                  <span className="ml-2 text-[#021626] font-body font-light">
+                    {country.code}
+                  </span>
                 </div>
-                <span className="w-16 text-gray-600">{country.code}</span>
-                <span className="flex-1 text-left text-gray-900">
+                <span className="flex-1 text-left text-[#021626] font-body font-light ml-4">
                   {country.name}
                 </span>
               </button>

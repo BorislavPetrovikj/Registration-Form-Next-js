@@ -30,7 +30,7 @@ export default function CountrySelector({
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="ml-2"
+        className="ml-2 border-radius[12px]"
       >
         <path
           d="M4 6L8 10L12 6"

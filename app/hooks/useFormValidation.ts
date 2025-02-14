@@ -1,30 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { RegistrationFormData, ValidationErrors } from '../types/form';
-import { validateName, validatePhoneNumber } from '../utils/validation';
+import { validateName, validatePhoneNumber, shouldShowValidation } from '../utils/validation';
 
 export function useFormValidation(formData: RegistrationFormData) {
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (touched.firstName && !formData.firstName) {
-      setErrors((prev) => ({ ...prev, firstName: "This field is required" }));
+  const validateField = (name: string, value: string, shouldValidate: boolean = false) => {
+    if (name === 'firstName' || name === 'lastName') {
+      return validateName(value, shouldValidate);
+    } else if (name === 'phoneNumber') {
+      return validatePhoneNumber(value, shouldValidate);
     }
-    if (touched.lastName && !formData.lastName) {
-      setErrors((prev) => ({ ...prev, lastName: "This field is required" }));
-    }
-  }, [formData.firstName, formData.lastName, touched]);
+    return undefined;
+  };
 
-  const handleBlur = (name: string) => {
-    setTouched((prev) => ({ ...prev, [name]: true }));
-    if (!formData[name as keyof typeof formData]) {
-      setErrors((prev) => ({ ...prev, [name]: "This field is required" }));
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    
+    if (touched[name]) {
+      const error = validateField(name, value, false);
+      setErrors(prev => ({ ...prev, [name]: error }));
     }
   };
 
+  const handleBlur = (name: string) => {
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const value = formData[name as keyof typeof formData];
+    
+    const error = validateField(name, value, !value);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
+
   const validateStep1 = (): boolean => {
-    const firstNameError = validateName(formData.firstName);
-    const lastNameError = validateName(formData.lastName);
+    setIsSubmitting(true);
+    setTouched(prev => ({
+      ...prev,
+      firstName: true,
+      lastName: true
+    }));
+
+    const firstNameError = validateField('firstName', formData.firstName, true);
+    const lastNameError = validateField('lastName', formData.lastName, true);
 
     setErrors({
       firstName: firstNameError,
@@ -35,14 +53,21 @@ export function useFormValidation(formData: RegistrationFormData) {
   };
 
   const validateStep2 = (): boolean => {
-    const phoneError = validatePhoneNumber(formData.phoneNumber);
-    setErrors({ phoneNumber: phoneError });
+    setIsSubmitting(true);
+    setTouched(prev => ({
+      ...prev,
+      phoneNumber: true
+    }));
+
+    const phoneError = validateField('phoneNumber', formData.phoneNumber, true);
+    setErrors(prev => ({ ...prev, phoneNumber: phoneError }));
     return !phoneError;
   };
 
-  const clearErrors = () => {
+  const resetValidation = () => {
     setErrors({});
     setTouched({});
+    setIsSubmitting(false);
   };
 
   return {
@@ -51,8 +76,10 @@ export function useFormValidation(formData: RegistrationFormData) {
     touched,
     setTouched,
     handleBlur,
+    handleInputChange,
     validateStep1,
     validateStep2,
-    clearErrors
+    resetValidation,
+    isSubmitting
   };
 } 
