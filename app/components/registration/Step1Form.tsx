@@ -43,8 +43,6 @@ export default function Step1Form({
         label="First name"
         name="firstName"
         type="text"
-        required
-        aria-required="true"
         aria-describedby="firstName-error"
         value={formData.firstName}
         onChange={handleInputChange}

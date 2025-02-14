@@ -119,6 +119,7 @@ export default function RegistrationForm() {
             className="mt-[30px] space-y-6 max-w-full"
             role="form"
             aria-label="Registration form"
+            noValidate
           >
             <div role="group" aria-labelledby="step-title">
               <h1
