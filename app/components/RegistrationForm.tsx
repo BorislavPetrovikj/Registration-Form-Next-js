@@ -60,7 +60,6 @@ export default function RegistrationForm() {
     if (name === "firstName") setFirstName(value);
     if (name === "lastName") setLastName(value);
 
-    // Validate on change
     validateOnChange(e);
   };
 

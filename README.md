@@ -47,6 +47,7 @@ yarn dev
 ### Validation Rules
 - First/Last Name: 2-50 characters, letters only
 - Phone Number: UK format (07XXXXXXXXX)
+- Test with these number for uk : 07890 123456
 
 ### Test Cases
 1. Form Navigation
@@ -70,26 +71,77 @@ yarn dev
 ```
 ├── app/
 │   ├── components/
+│   │   ├── registration/
+│   │   │   ├── CountrySelectionModal.tsx
+│   │   │   ├── CountrySelector.tsx
+│   │   │   ├── FormFooter.tsx
+│   │   │   ├── FormModals.tsx
+│   │   │   ├── Step1Form.tsx
+│   │   │   └── Step2Form.tsx
 │   │   ├── ui/
-│   │   │   ├── form-input.tsx
-│   │   │   └── step-indicator.tsx
-│   │   └── registration-form.tsx
-│   ├── lib/
-│   │   └── validation.ts
+│   │   │   ├── Input.tsx
+│   │   │   └── PhoneInput.tsx
+│   │   ├── Header.tsx
+│   │   ├── Modal.tsx
+│   │   ├── RegistrationForm.tsx
+│   │   ├── StepIndicator.tsx
+│   │   └── SuccessScreen.tsx
+│   ├── constants/
+│   │   └── countries.ts
+│   ├── hooks/
+│   │   └── useFormValidation.ts
+│   ├── store/
+│   │   └── useFormStore.ts
 │   ├── types/
 │   │   └── form.ts
+│   ├── utils/
+│   │   └── validation.ts
+│   ├── __tests__/
+│   │   └── RegistrationForm.test.tsx
+│   ├── fonts/
+│   │   ├── GeistVF.woff
+│   │   └── GeistMonoVF.woff
+│   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
 ├── public/
-│   └── fonts/
-└── ...
+│   ├── Logo.svg
+│   └── Vector.svg
+├── .eslintrc.json
+├── jest.config.ts
+├── jest.setup.ts
+├── next.config.mjs
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
 ```
 
 ### Key Components
 
-- `registration-form.tsx`: Main form component with step management
-- `form-input.tsx`: Reusable input component with validation
-- `step-indicator.tsx`: Visual indicator for current step
-- `validation.ts`: Form validation rules and functions
+- `registration/`: Contains all registration-specific components
+  - `Step1Form.tsx`: First step of registration (name inputs)
+  - `Step2Form.tsx`: Second step of registration (phone input)
+  - `CountrySelector.tsx`: Country selection component
+  - `FormFooter.tsx`: Footer with terms and continue button
+  - `FormModals.tsx`: Terms and privacy policy modals
+
+- `ui/`: Reusable UI components
+  - `Input.tsx`: Base input component
+  - `PhoneInput.tsx`: Specialized phone input with country code
+
+- `hooks/`: Custom React hooks
+  - `useFormValidation.ts`: Form validation logic
+
+- `store/`: State management
+  - `useFormStore.ts`: Zustand store for form state
+
+- `utils/`: Utility functions
+  - `validation.ts`: Form validation rules and functions
+
+- `types/`: TypeScript type definitions
+  - `form.ts`: Form-related types and interfaces
+
+Would you like me to make any other adjustments to the structure documentation?
 
 

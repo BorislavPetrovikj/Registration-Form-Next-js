@@ -19,7 +19,7 @@ body {
   }
 }
 
-/* Font smoothing */
+
 @layer base {
   html {
       -webkit-font-smoothing: antialiased;
@@ -30,7 +30,7 @@ body {
   
 }
 
-/* Form-specific styles */
+
 @layer components {
   .form-transition {
     @apply transition-all duration-200 ease-in-out;
